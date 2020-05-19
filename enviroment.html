@@ -1,0 +1,321 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="dist/css/carousel.css">
+		<link rel="stylesheet" href="dist/css/bootstrap.css">
+		<script src="dist/js/jquery.min.js"></script>
+		<script src="dist/js/bootstrap.js"></script>
+		</head>
+		<style>
+		  #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .title {
+        font-weight: bold;
+      }
+      #infowindow-content {
+        display: none;
+      }
+      #map #infowindow-content {
+        display: inline;
+      }
+		</style>
+<script>window.onload = function() {
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	title:{
+		text: "Website Traffic"
+	},
+	axisX:{
+		valueFormatString: "DD MMM"
+	},
+	axisY: {
+		title: "Number of Visitors",
+		includeZero: false,
+		scaleBreaks: {
+			autoCalculate: true
+		}
+	},
+	data: [{
+		type: "line",
+		xValueFormatString: "DD MMM",
+		color: "#F08080",
+		dataPoints: [
+			{ x: new Date(2017, 0, 1), y: 610 },
+			{ x: new Date(2017, 0, 2), y: 680 },
+			{ x: new Date(2017, 0, 3), y: 690 },
+			{ x: new Date(2017, 0, 4), y: 700 },
+			{ x: new Date(2017, 0, 5), y: 710 },
+			{ x: new Date(2017, 0, 6), y: 658 },
+			{ x: new Date(2017, 0, 7), y: 734 },
+			{ x: new Date(2017, 0, 8), y: 963 },
+			{ x: new Date(2017, 0, 9), y: 847 },
+			{ x: new Date(2017, 0, 10), y: 853 },
+			{ x: new Date(2017, 0, 11), y: 869 },
+			{ x: new Date(2017, 0, 12), y: 943 },
+			{ x: new Date(2017, 0, 13), y: 970 },
+			{ x: new Date(2017, 0, 14), y: 869 },
+			{ x: new Date(2017, 0, 15), y: 890 },
+			{ x: new Date(2017, 0, 16), y: 930 },
+			{ x: new Date(2017, 0, 17), y: 1850 },
+			{ x: new Date(2017, 0, 18), y: 1905 },
+			{ x: new Date(2017, 0, 19), y: 1980 },
+			{ x: new Date(2017, 0, 20), y: 1858 },
+			{ x: new Date(2017, 0, 21), y: 1034 },
+			{ x: new Date(2017, 0, 22), y: 963 },
+			{ x: new Date(2017, 0, 23), y: 847 },
+			{ x: new Date(2017, 0, 24), y: 853 },
+			{ x: new Date(2017, 0, 25), y: 869 },
+			{ x: new Date(2017, 0, 26), y: 943 },
+			{ x: new Date(2017, 0, 27), y: 970 },
+			{ x: new Date(2017, 0, 28), y: 869 },
+			{ x: new Date(2017, 0, 29), y: 890 },
+			{ x: new Date(2017, 0, 30), y: 930 },
+			{ x: new Date(2017, 0, 31), y: 750 }
+		]
+	}]
+});
+chart2.render();
+
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Hourly Average CPU Utilization"
+	},
+	axisX: {
+		title: "Time"
+	},
+	axisY: {
+		title: "Percentage",
+		suffix: "%"
+	},
+	data: [{
+		type: "line",
+		name: "CPU Utilization",
+		connectNullData: true,
+		//nullDataLineDashType: "solid",
+		xValueType: "dateTime",
+		xValueFormatString: "DD MMM hh:mm TT",
+		yValueFormatString: "#,##0.##\"%\"",
+		dataPoints: [
+			{ x: 1501048673000, y: 35.939 },
+			{ x: 1501052273000, y: 40.896 },
+			{ x: 1501055873000, y: 56.625 },
+			{ x: 1501059473000, y: 26.003 },
+			{ x: 1501063073000, y: 20.376 },
+			{ x: 1501066673000, y: 19.774 },
+			{ x: 1501070273000, y: 23.508 },
+			{ x: 1501073873000, y: 18.577 },
+			{ x: 1501077473000, y: 15.918 },
+			{ x: 1501081073000, y: null }, // Null Data
+			{ x: 1501084673000, y: 10.314 },
+			{ x: 1501088273000, y: 10.574 },
+			{ x: 1501091873000, y: 14.422 },
+			{ x: 1501095473000, y: 18.576 },
+			{ x: 1501099073000, y: 22.342 },
+			{ x: 1501102673000, y: 22.836 },
+			{ x: 1501106273000, y: 23.220 },
+			{ x: 1501109873000, y: 23.594 },
+			{ x: 1501113473000, y: 24.596 },
+			{ x: 1501117073000, y: 31.947 },
+			{ x: 1501120673000, y: 31.142 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+		<body>
+			<div class="container-well">
+			<div class="row">
+			    <div class="col-sm-12">
+				   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="1.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-left">Enviroment Dashboard</h1>
+              
+            </div>
+          </div>
+        </div>
+       
+       
+      </div>
+      
+    </div><!-- /.carousel -->
+
+	
+	
+	
+	<!--carousel end-->
+	</div>
+				</div>
+			</div>
+			
+				<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+					<h4 class="text-center">Today</h4>
+					</div>
+					<img src="9.jpg" class="img-responsive image-circle">
+					<p class="text-center">25°C</p>
+					</div>
+					</div>
+					<div class="col-sm-2">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+					<h4 class="text-center">humanity</h4>
+					</div>
+					<img src="2.jpg" class="img-responsive image-circle">
+					<p class="text-center">26</p>
+					</div>
+					</div>
+					<div class="col-sm-2">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+					<h4 class="text-center">noise</h4>
+					</div>
+					<img src="3.jpg" class="img-responsive image-circle">
+					<p class="text-center">20db</p>
+					</div>
+					</div>
+					<div class="col-sm-2">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+					<h4 class="text-center">CO2</h4>
+					</div>
+					<img src="5.jpg" class="img-responsive image-circle">
+					<p class="text-center">25</p>
+					</div>
+					</div>
+					<div class="col-sm-2">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+					<h4 class="text-center">AQI</h4>
+					</div>
+					<img src="1.jpg" class="img-responsive image-circle">
+					<p class="text-center">45</p>
+					</div>
+					</div>
+					<br>
+					<div class="col-sm-9">
+					 <div id="map"></div>
+    <div id="infowindow-content">
+      <img id="place-icon" src="" height="16" width="16">
+      <span id="place-name"  class="title"></span><br>
+      Place ID <span id="place-id"></span><br>
+      <span id="place-address"></span>
+    </div>
+					<script>
+function initMap() {
+        var origin = {lat: -33.871, lng: 151.197};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: origin
+        });
+        var clickHandler = new ClickEventHandler(map, origin);
+      }
+
+      /**
+       * @constructor
+       */
+      var ClickEventHandler = function(map, origin) {
+        this.origin = origin;
+        this.map = map;
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+        this.placesService = new google.maps.places.PlacesService(map);
+        this.infowindow = new google.maps.InfoWindow;
+        this.infowindowContent = document.getElementById('infowindow-content');
+        this.infowindow.setContent(this.infowindowContent);
+
+        // Listen for clicks on the map.
+        this.map.addListener('click', this.handleClick.bind(this));
+      };
+
+      ClickEventHandler.prototype.handleClick = function(event) {
+        console.log('You clicked on: ' + event.latLng);
+		document.getElementById("chartContainer").style.display="block";
+	document.getElementById("chartContainer2").style.display="block";
+	alert("click");
+        // If the event has a placeId, use it.
+        if (event.placeId) {
+          console.log('You clicked on place:' + event.placeId);
+
+          // Calling e.stop() on the event prevents the default info window from
+          // showing.
+          // If you call stop here when there is no placeId you will prevent some
+          // other map click event handlers from receiving the event.
+          event.stop();
+          this.calculateAndDisplayRoute(event.placeId);
+          this.getPlaceInformation(event.placeId);
+        }
+      };
+
+      ClickEventHandler.prototype.calculateAndDisplayRoute = function(placeId) {
+        var me = this;
+        this.directionsService.route({
+          origin: this.origin,
+          destination: {placeId: placeId},
+          travelMode: 'WALKING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+
+      ClickEventHandler.prototype.getPlaceInformation = function(placeId) {
+        var me = this;
+        this.placesService.getDetails({placeId: placeId}, function(place, status) {
+          if (status === 'OK') {
+            me.infowindow.close();
+            me.infowindow.setPosition(place.geometry.location);
+            me.infowindowContent.children['place-icon'].src = place.icon;
+            me.infowindowContent.children['place-name'].textContent = place.name;
+            me.infowindowContent.children['place-id'].textContent = place.place_id;
+            me.infowindowContent.children['place-address'].textContent =
+                place.formatted_address;
+            me.infowindow.open(me.map);
+          }
+        });
+      };
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfKFk1ReXbHnJB4JKa8Tsx7NTVGeekNk8&libraries=places&callback=initMap"
+        async defer></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfKFk1ReXbHnJB4JKa8Tsx7NTVGeekNk8&callback=myMap"></script>
+
+				<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15552.6498133687!2d77.71082503246127!3d12.961454557597628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae12336cac1167%3A0x23953b77cf84106c!2sBrookefield+Mall+Bangalore!5e0!3m2!1sen!2sin!4v1561797920332!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				-->
+				
+		</div>
+		<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		  </div>
+		</div>
+		
+	<script>
+	document.getElementById("chartContainer").style.display="none";
+	document.getElementById("chartContainer2").style.display="none";
+	</script>
+	</body>
+	
+</html>		
